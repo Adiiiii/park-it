@@ -16,7 +16,6 @@ height: 400px;
 width: 100%;
 display:flex;
 align-items: flex-end;
-background: url('https://images.unsplash.com/photo-1464219789935-c2d9d9aba644');
 background-image: linear-gradient(to right top, #e9a80b, #e7b604, #e3c306, #ded111, #d7de1f);
 background-size: cover;
 color: ${COLOR.black};
@@ -55,6 +54,7 @@ export const Details = styled.div`
 display: flex;
 justify-content: space-evenly;
 padding: 50px 60px 0 60px;
+flex-wrap: wrap;
 `;
 
 export const AddressWrapper = styled.div`
@@ -64,7 +64,7 @@ font-size: ${FONT_SIZE.large};
 
 export const Label = styled.p`
 color: ${COLOR.yellow};
-margin-bottom: 8px;
+margin-bottom: 16px;
 `;
 
 export const Value = styled.p`
@@ -103,4 +103,21 @@ margin-right: 20px;
 export const ClickableText = styled.p`
 cursor: pointer;
 color: ${({ selected }) => (selected ? COLOR.yellow100 : COLOR.white)};
+`;
+
+export const Button = styled.button`
+padding: 20px 30px;
+align-self: flex-end;
+cursor: pointer;
+font-size: ${FONT_SIZE.large};
+background: ${COLOR.yellow};
+color: ${COLOR.white};
+transition: all 0.2s ease;
+background-image: linear-gradient(to right top, #e9a80b, #e7b604, #e3c306, #ded111, #d7de1f);
+border-radius: 15px;
+:hover {
+    transform: scale(1.1);
+    background: ${COLOR.white};
+    color: ${COLOR.yellow};
+}
 `;

@@ -15,6 +15,7 @@ import {
   Label,
   DoorsWrapper, DoorImage, DoorList,
   ClickableText,
+  Button,
 } from './Dashboard.style';
 
 const Dashboard = () => {
@@ -104,6 +105,7 @@ const Dashboard = () => {
             <DoorImage src={door?.url} />
           </DoorsInfo>
         </DoorsWrapper>
+        <Button>Click to park</Button>
       </Details>
     </Wrapper>
   );
