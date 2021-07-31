@@ -5,6 +5,7 @@ import { ReactComponent as CarSvg } from '../../assets/images/me.svg';
 export const Wrapper = styled.div`
 display: flex;
 flex-direction: column;
+height: 100vh;
 `;
 
 // https://images.unsplash.com/photo-1475459340673-25b00f9c9477
@@ -16,7 +17,7 @@ width: 100%;
 display:flex;
 align-items: flex-end;
 background: url('https://images.unsplash.com/photo-1464219789935-c2d9d9aba644');
-background-image: linear-gradient(to right top, #b3b731, #bfc42d, #cbd127, #d7de1f, #e3eb12);
+background-image: linear-gradient(to right top, #e9a80b, #e7b604, #e3c306, #ded111, #d7de1f);
 background-size: cover;
 color: ${COLOR.black};
 position: relative;
@@ -52,7 +53,8 @@ height: 400px;
 
 export const Details = styled.div`
 display: flex;
-padding: 20px 60px;
+justify-content: space-evenly;
+padding: 50px 60px 0 60px;
 `;
 
 export const AddressWrapper = styled.div`
@@ -68,4 +70,37 @@ margin-bottom: 8px;
 export const Value = styled.p`
 color: ${COLOR.white};
 line-height: 1.5
+`;
+
+export const GarageImage = styled.img`
+flex: 1;
+width: 100%;
+`;
+
+export const DoorsInfo = styled.div`
+padding-bottom: 24px;
+display: flex;
+font-size: ${FONT_SIZE.large};
+margin-right: 24px;
+`;
+
+export const DoorsWrapper = styled.div`
+font-size: ${FONT_SIZE.large}
+`;
+export const DoorImage = styled.img`
+flex: 1;
+width: 100%;
+`;
+
+export const DoorList = styled.div`
+display: flex;
+width: 100%;
+flex-direction: column;
+justify-content: space-between;
+margin-right: 20px;
+`;
+
+export const ClickableText = styled.p`
+cursor: pointer;
+color: ${({ selected }) => (selected ? COLOR.yellow100 : COLOR.white)};
 `;

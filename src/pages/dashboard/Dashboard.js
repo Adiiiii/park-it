@@ -5,13 +5,31 @@ import {
   Wrapper,
   Banner,
   TotalSlots,
-  GarageName, Rate, HighLights, CarImage, Details, AddressWrapper,
+  GarageName,
+  DoorsInfo,
+  Rate,
+  HighLights,
+  CarImage, Details,
+  AddressWrapper,
+  // GarageImage,
+  Label,
+  DoorsWrapper, DoorImage, DoorList,
+  ClickableText,
 } from './Dashboard.style';
 
 const Dashboard = () => {
   const GARAGE_ID = 'f48da692-3092-45fc-94ed-44e45d8ed457';
   const [data, setData] = useState(null);
+  const [door, setDoor] = useState();
   const [price, setPrice] = useState();
+
+  const getPicUrl = (description) => {
+    const imgObj = data.photos
+      .filter((photo) => photo.description === description)[0];
+    const url = imgObj.urls.filter((urlObj) => urlObj.name === 'Small')[0].url || '';
+    return url;
+  };
+  const selectDoor = (description) => setDoor({ description, url: getPicUrl(description) });
 
   useEffect(async () => {
     // garage and pricing info
@@ -19,6 +37,12 @@ const Dashboard = () => {
     const resp2 = await getGaragePricing(GARAGE_ID);
     setData({ ...resp.data, pricing: resp2.data });
   }, []);
+
+  useEffect(() => {
+    if (data) {
+      selectDoor('Entry door');
+    }
+  }, [data]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -44,6 +68,7 @@ const Dashboard = () => {
       clearInterval(timer);
     };
   }, [data]);
+  if (!data) return null;
 
   return (
     <Wrapper>
@@ -59,6 +84,7 @@ const Dashboard = () => {
       </Banner>
       <Details>
         <AddressWrapper>
+          {/* <GarageImage src={getPicUrl('Interior')} style={{ display: 'none' }} /> */}
           <FullAddress
             city={data?.city}
             country={data?.country}
@@ -67,6 +93,17 @@ const Dashboard = () => {
             streetAddress={data?.streetAddress}
           />
         </AddressWrapper>
+        <DoorsWrapper>
+          <Label>Doors information</Label>
+          <DoorsInfo>
+            <DoorList>
+              <ClickableText selected={door?.description === 'Entry door'} onClick={() => selectDoor('Entry door')}>Entry Door</ClickableText>
+              <ClickableText selected={door?.description === 'Exit door'} onClick={() => selectDoor('Exit door')}>Exit Door</ClickableText>
+              <ClickableText selected={door?.description === 'Pedesterian door'} onClick={() => selectDoor('Pedesterian door')}>Pedesterain Doors</ClickableText>
+            </DoorList>
+            <DoorImage src={door?.url} />
+          </DoorsInfo>
+        </DoorsWrapper>
       </Details>
     </Wrapper>
   );
