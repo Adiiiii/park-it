@@ -74,8 +74,8 @@ const Dashboard = () => {
   return (
     <Wrapper>
       <Banner>
+        <CarImage />
         <HighLights>
-          <CarImage />
           <GarageName>{data?.name}</GarageName>
           <TotalSlots>
             {`${data?.capacity} slots`}

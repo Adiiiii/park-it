@@ -14,12 +14,13 @@ height: 100vh;
 export const Banner = styled.div`
 height: 400px;
 width: 100%;
+flex-direction: column;
 display:flex;
-align-items: flex-end;
 background-image: linear-gradient(to right top, #e9a80b, #e7b604, #e3c306, #ded111, #d7de1f);
 background-size: cover;
 color: ${COLOR.black};
 position: relative;
+justify-content: center;
 `;
 
 export const HighLights = styled.div`
@@ -45,9 +46,7 @@ display:flex;
 `;
 
 export const CarImage = styled(CarSvg)`
-position: absolute;
-top: -60px;
-height: 400px;
+transform: scale(1.4);
 `;
 
 export const Details = styled.div`
