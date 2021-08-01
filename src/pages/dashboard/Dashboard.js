@@ -96,6 +96,7 @@ const Dashboard = () => {
             streetAddress={data?.streetAddress}
           />
         </AddressWrapper>
+        <Ameneties {...data.amenities} />
         <DoorsWrapper>
           <Label>Doors information</Label>
           <DoorsInfo>
@@ -107,9 +108,8 @@ const Dashboard = () => {
             <DoorImage src={door?.url} />
           </DoorsInfo>
         </DoorsWrapper>
-        <Ameneties {...data.amenities} />
-        <Button>Click to park</Button>
       </Details>
+      <Button>Click to park</Button>
     </Wrapper>
   );
 };

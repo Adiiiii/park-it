@@ -110,6 +110,7 @@ color: ${({ selected }) => (selected ? COLOR.yellow100 : COLOR.white)};
 
 export const Button = styled.button`
 padding: 20px 30px;
+margin: 20px 30px 0 0;
 align-self: flex-end;
 cursor: pointer;
 font-size: ${FONT_SIZE.large};
