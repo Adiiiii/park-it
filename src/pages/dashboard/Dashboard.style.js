@@ -13,6 +13,7 @@ height: 100vh;
 // https://images.unsplash.com/photo-1464219789935-c2d9d9aba644
 export const Banner = styled.div`
 height: 400px;
+overflow: hidden;
 width: 100%;
 flex-direction: column;
 display:flex;
@@ -86,6 +87,7 @@ margin-right: 24px;
 export const DoorsWrapper = styled.div`
 font-size: ${FONT_SIZE.large}
 `;
+
 export const DoorImage = styled.img`
 flex: 1;
 width: 100%;
