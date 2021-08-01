@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Label } from '../../../pages/dashboard/Dashboard.style';
 import {
   AmenitiesWrapper, Amenity, CrossIcon, Name, TickIcon, Value,
-} from './Ameneties.style';
+} from './Amenities.style';
 
-const Ameneties = ({
+const Amenities = ({
   isIndoor,
   isOutdoor,
   wheelChairAccessible,
@@ -53,7 +53,7 @@ const Ameneties = ({
   </AmenitiesWrapper>
 );
 
-Ameneties.propTypes = {
+Amenities.propTypes = {
   isIndoor: PropTypes.bool.isRequired,
   isOutdoor: PropTypes.bool.isRequired,
   wheelChairAccessible: PropTypes.bool.isRequired,
@@ -63,4 +63,4 @@ Ameneties.propTypes = {
   maximumHeadSpaceInMeters: PropTypes.string.isRequired,
 };
 
-export default Ameneties;
+export default Amenities;

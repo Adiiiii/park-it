@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FullAddress from '../../components/Dashboard/Address/Address';
-import Ameneties from '../../components/Dashboard/Ameneties/Ameneties';
+import Amenities from '../../components/Dashboard/Amenities/Amenities';
 import { getGarageAmenities, getGarageInfo, getGaragePricing } from '../../service/Dashboard.service';
 import {
   Wrapper,
@@ -96,7 +96,7 @@ const Dashboard = () => {
             streetAddress={data?.streetAddress}
           />
         </AddressWrapper>
-        <Ameneties {...data.amenities} />
+        <Amenities {...data.amenities} />
         <DoorsWrapper>
           <Label>Doors information</Label>
           <DoorsInfo>
