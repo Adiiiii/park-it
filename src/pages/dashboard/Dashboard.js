@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import FullAddress from '../../components/Dashboard/Address/Address';
-import { getGarageInfo, getGaragePricing } from '../../service/Dashboard.service';
+import Ameneties from '../../components/Dashboard/Ameneties/Ameneties';
+import { getGarageAmenities, getGarageInfo, getGaragePricing } from '../../service/Dashboard.service';
 import {
   Wrapper,
   Banner,
@@ -36,7 +37,8 @@ const Dashboard = () => {
     // garage and pricing info
     const resp = await getGarageInfo(GARAGE_ID);
     const resp2 = await getGaragePricing(GARAGE_ID);
-    setData({ ...resp.data, pricing: resp2.data });
+    const resp3 = await getGarageAmenities(GARAGE_ID);
+    setData({ ...resp.data, pricing: resp2.data, amenities: resp3.data });
   }, []);
 
   useEffect(() => {
@@ -105,6 +107,7 @@ const Dashboard = () => {
             <DoorImage src={door?.url} />
           </DoorsInfo>
         </DoorsWrapper>
+        <Ameneties {...data.amenities} />
         <Button>Click to park</Button>
       </Details>
     </Wrapper>

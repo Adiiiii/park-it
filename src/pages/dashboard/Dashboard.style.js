@@ -101,7 +101,11 @@ margin-right: 20px;
 
 export const ClickableText = styled.p`
 cursor: pointer;
+transition: all 0.2s ease;
 color: ${({ selected }) => (selected ? COLOR.yellow100 : COLOR.white)};
+:hover {
+    color: ${COLOR.yellow100};
+}
 `;
 
 export const Button = styled.button`
@@ -115,7 +119,6 @@ transition: all 0.2s ease;
 background-image: linear-gradient(to right top, #e9a80b, #e7b604, #e3c306, #ded111, #d7de1f);
 border-radius: 15px;
 :hover {
-    transform: scale(1.1);
     background: ${COLOR.white};
     color: ${COLOR.yellow};
 }
