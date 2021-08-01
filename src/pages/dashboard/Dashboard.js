@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import FullAddress from '../../components/Dashboard/Address/Address';
 import Amenities from '../../components/Dashboard/Amenities/Amenities';
-import { getGarageAmenities, getGarageInfo, getGaragePricing } from '../../service/Dashboard.service';
+import {
+  getGarageAmenities, getGarageAvailablity, getGarageInfo, getGaragePricing,
+} from '../../service/Dashboard.service';
 import {
   Wrapper,
   Banner,
@@ -17,6 +19,7 @@ import {
   DoorsWrapper, DoorImage, DoorList,
   ClickableText,
   Button,
+  RefreshIcon,
 } from './Dashboard.style';
 
 const Dashboard = () => {
@@ -24,6 +27,8 @@ const Dashboard = () => {
   const [data, setData] = useState(null);
   const [door, setDoor] = useState();
   const [price, setPrice] = useState();
+
+  const [availablityInfo, setAvailablityInfo] = useState('NA');
 
   const getPicUrl = (description) => {
     const imgObj = data.photos
@@ -33,11 +38,17 @@ const Dashboard = () => {
   };
   const selectDoor = (description) => setDoor({ description, url: getPicUrl(description) });
 
+  const refreshAvailablity = async () => {
+    const resp = await getGarageAvailablity(GARAGE_ID);
+    setAvailablityInfo(resp.data.availableSpaces);
+  };
+
   useEffect(async () => {
     // garage and pricing info
     const resp = await getGarageInfo(GARAGE_ID);
     const resp2 = await getGaragePricing(GARAGE_ID);
     const resp3 = await getGarageAmenities(GARAGE_ID);
+    refreshAvailablity();
     setData({ ...resp.data, pricing: resp2.data, amenities: resp3.data });
   }, []);
 
@@ -80,7 +91,8 @@ const Dashboard = () => {
         <HighLights>
           <GarageName>{data?.name}</GarageName>
           <TotalSlots>
-            {`${data?.capacity} slots`}
+            {`${availablityInfo} out of ${data?.capacity} slots available`}
+            <RefreshIcon onClick={refreshAvailablity} />
           </TotalSlots>
           <Rate>{`€${price}/hr`}</Rate>
         </HighLights>

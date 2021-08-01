@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { COLOR, FONT_SIZE } from '../../constants/style';
 import { ReactComponent as CarSvg } from '../../assets/images/me.svg';
+import { ReactComponent as RefreshSvg } from '../../assets/images/icon-refresh.svg';
 
 export const Wrapper = styled.div`
 display: flex;
@@ -40,6 +41,7 @@ max-width: 250px;
 
 export const TotalSlots = styled.h1`
 display:flex;
+align-items: center;
 `;
 
 export const Rate = styled.h1`
@@ -47,7 +49,7 @@ display:flex;
 `;
 
 export const CarImage = styled(CarSvg)`
-transform: scale(1.4);
+transform: scale(1.2);
 `;
 
 export const Details = styled.div`
@@ -125,4 +127,14 @@ border-radius: 15px;
     background: ${COLOR.white};
     color: ${COLOR.yellow};
 }
+`;
+
+export const RefreshIcon = styled(RefreshSvg)`
+cursor: pointer;
+width: 20px;
+height: 24px;
+margin-left: 8px;
+:hover *{
+    fill: ${COLOR.white};
+    }
 `;
