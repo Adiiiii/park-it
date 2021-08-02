@@ -15,6 +15,5 @@ export const FONT_SIZE = {
   large: '20px',
   xl: '24px',
   xxl: '28px',
+  max: '78px',
 };
-
-export default COLOR;
