@@ -59,11 +59,6 @@ padding: 50px 60px 0 60px;
 flex-wrap: wrap;
 `;
 
-export const AddressWrapper = styled.div`
-max-width: 250px;
-font-size: ${FONT_SIZE.large};
-`;
-
 export const Label = styled.p`
 color: ${COLOR.yellow};
 margin-bottom: 16px;
@@ -72,11 +67,6 @@ margin-bottom: 16px;
 export const Value = styled.p`
 color: ${COLOR.white};
 line-height: 1.5
-`;
-
-export const GarageImage = styled.img`
-flex: 1;
-width: 100%;
 `;
 
 export const DoorsInfo = styled.div`
