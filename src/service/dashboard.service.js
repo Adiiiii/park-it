@@ -9,6 +9,8 @@ export const getGarageAmenities = (id) => axios.get(`${BASE_URL}/garage-amenitie
 
 export const getGaragePricing = (id) => axios.get(`${BASE_URL}/pricing/${id}`);
 
-export const startParking = (doorId) => axios.get(`${BASE_URL}/start-parking/${doorId}`);
+export const startParking = (
+  { garageId, userId, carRegestrationNumber },
+) => axios.post(`${BASE_URL}/start-parking/`, { garageId, userId, carRegestrationNumber });
 
-export const stopParking = (transactionId) => axios.get(`${BASE_URL}/pricing/${transactionId}`);
+export const stopParking = (transactionId = 1) => axios.get(`${BASE_URL}/stop-parking/${transactionId}`);
