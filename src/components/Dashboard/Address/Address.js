@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Label, Value } from '../../../pages/dashboard/Dashboard.style';
+import AddressWrapper from './Address.style';
 
 const FullAddress = ({
   name, streetAddress, postalCode, city, country,
 }) => (
   <>
-    <Label>Address</Label>
-    <Value>{`${name}, `}</Value>
-    <Value>{`${streetAddress}, `}</Value>
-    <Value>{`${postalCode}, ${city}`}</Value>
-    <Value>{country}</Value>
+    <AddressWrapper>
+      <Label>Address</Label>
+      <Value>{`${name}, `}</Value>
+      <Value>{`${streetAddress}, `}</Value>
+      <Value>{`${postalCode}, ${city}`}</Value>
+      <Value>{country}</Value>
+    </AddressWrapper>
   </>
 );
 
